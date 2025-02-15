@@ -29,8 +29,20 @@ public class UserService {
         return repo.insert(obj);
     }
 
+    public void delete(String id){
+
+        /* course content does not work, it asks to create a extra method in UserRepository interface
+        and even that way it´s not working
+            findBYId(id);
+            repo.delete(id);
+        so I just modified to this to make it works
+        */
+        repo.delete(findById(id));
+    }
+
     public User fromDTO(UserDTO obj){
         return new User(obj.getId(), obj.getName(), obj.getEmail());
     }
+
 
 }
