@@ -1,0 +1,39 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+' Conf block
+skinparam linetype ortho
+skinparam nodesep 150
+skinparam ranksep 150
+'-------------------------------------------------
+
+
+
+' Class block
+class User{
+    - id : String
+    - name : String
+    - email : String
+}
+
+class Post{
+    - id : String
+    - date : Date
+    - title : String
+    - body : String
+}
+
+class Comment{
+    - id : String
+    - text : String
+    - date : Date
+}
+'---------------------------------------------------
+
+' Relationships block
+User "1" -r-> "1..*" Post :  cria >
+Post "1" -r-> "1..*" Comment : tem >
+Comment o-l-> User : escrito por >
+'---------------------------------------------------
+
+@enduml
